@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: spring-ai-demo
+  ai:
+    openai:
+      api-key: sk-f72bad07461c4f7297ade171301538be
+      base-url: https://api.deepseek.com
+      chat:
+        options:
+          kind: chat
+          model: deepseek-chat
+          temperature: 0.7
+logging:
+  level:
+    org.springframework.ai.chat.client.advisor: debug
