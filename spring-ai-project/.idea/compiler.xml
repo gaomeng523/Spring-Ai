@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="spring-ollama-demo" />
+        <module name="spring-alibaba-demo" />
         <module name="spring-ai-demo" />
       </profile>
     </annotationProcessing>
@@ -15,6 +16,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="spring-ai-demo" options="-parameters" />
       <module name="spring-ai-project" options="-parameters" />
+      <module name="spring-alibaba-demo" options="-parameters" />
       <module name="spring-ollama-demo" options="-parameters" />
     </option>
   </component>

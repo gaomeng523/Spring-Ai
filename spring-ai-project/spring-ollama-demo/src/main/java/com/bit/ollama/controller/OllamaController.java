@@ -1,4 +1,4 @@
-package controller;
+package com.bit.ollama.controller;
 
 import org.springframework.ai.ollama.OllamaChatModel;
 import org.springframework.beans.factory.annotation.Autowired;

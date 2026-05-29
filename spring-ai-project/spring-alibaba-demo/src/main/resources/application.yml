@@ -1,0 +1,16 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: spring-alibaba-demo
+  ai:
+    dashscope:
+      api-key: sk-3696800b571e4f2ab6dbc100bf19ccb0
+      chat:
+        model: qwen-turbo  # 建议加上模型配置，避免自动配置出错
+
+logging:
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"

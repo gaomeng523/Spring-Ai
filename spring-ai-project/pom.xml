@@ -10,6 +10,7 @@
     <modules>
         <module>spring-ai-demo</module>
         <module>spring-ollama-demo</module>
+        <module>spring-alibaba-demo</module>
     </modules>
 
     <!-- 声明⽗⼯程的打包⽅式为pom -->
