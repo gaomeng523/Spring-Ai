@@ -2,10 +2,10 @@ package com.example.demo.controller;
 
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Flux;
 
 @RestController
 @RequestMapping("/ali")
@@ -25,4 +25,10 @@ public class AliController {
     public String chat(String message){
         return dashScopeChatClient.prompt(message).call().content();
     }
+
+    public Flux<String> flux(String message){
+        Flux<String> output = dashScopeChatClient.prompt().user(message).stream().content();
+        return output;
+    }
+
 }
