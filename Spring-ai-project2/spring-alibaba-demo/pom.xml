@@ -2,23 +2,26 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!-- 先继承 Spring Boot 父依赖，管理所有 Starter 版本 -->
     <parent>
-        <artifactId>Spring-ai-project2</artifactId>
-        <groupId>org.example</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.2.5</version>
+        <relativePath/>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
+    <modelVersion>4.0.0</modelVersion>
     <artifactId>spring-alibaba-demo</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <!-- 统一管理 DashScope SDK 版本 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <dashscope.version>2.22.17</dashscope.version>
     </properties>
 
     <dependencies>
+        <!-- Spring Boot Web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -33,28 +36,36 @@
             <artifactId>spring-webflux</artifactId>
         </dependency>
 
-        <!-- 1. Spring AI Alibaba DashScope Starter（你之前用的） -->
+        <!-- Spring AI Alibaba DashScope Starter -->
         <dependency>
             <groupId>com.alibaba.cloud.ai</groupId>
             <artifactId>spring-ai-alibaba-starter-dashscope</artifactId>
         </dependency>
 
-        <!-- 2. 原生 DashScope SDK（你现在代码里的 Transcription 类依赖） -->
+        <!-- 原生 DashScope SDK -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dashscope-sdk-java</artifactId>
             <version>${dashscope.version}</version>
         </dependency>
 
-        <!-- 3. Gson（代码里用到了 GsonBuilder） -->
+        <!-- Gson -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
+        </dependency>
+
+        <!-- JsonSchema Generator -->
+        <dependency>
+            <groupId>com.github.victools</groupId>
+            <artifactId>jsonschema-generator</artifactId>
+            <version>4.37.0</version>
         </dependency>
     </dependencies>
 
     <dependencyManagement>
         <dependencies>
+            <!-- Spring AI Alibaba BOM 管理 -->
             <dependency>
                 <groupId>com.alibaba.cloud.ai</groupId>
                 <artifactId>spring-ai-alibaba-bom</artifactId>
@@ -64,4 +75,5 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
 </project>

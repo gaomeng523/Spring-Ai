@@ -1,4 +1,10 @@
 spring:
+  application:
+    name: spring-alibaba-demo
   ai:
     dashscope:
       api-key: sk-3696800b571e4f2ab6dbc100bf19ccb0
+      chat:
+        options:
+          model: qwen-turbo          # 指定使用的模型，qwen-turbo 是基础可用模型
+          temperature: 0.7           # 控制回复的随机性（0-1）
