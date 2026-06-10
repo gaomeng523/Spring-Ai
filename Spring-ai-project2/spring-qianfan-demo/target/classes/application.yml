@@ -1,0 +1,10 @@
+spring:
+  ai:
+    openai:
+      # 格式：AK|SK 中间竖线隔开
+      api-key: "bce-v3/ALTAK-LYTDXb47v6rSn5Dxu9310/2378a24f1337d76794b|257bec5975ee28b833971"
+      base-url: https://qianfan.baidubce.com
+      chat:
+        options:
+          model: ernie-tiny-8k
+          temperature: 0.7
