@@ -23,7 +23,6 @@ public class ToolConfig {
                 .toolMethod(method)
                 .toolObject(new WeatherTools())
                 .build();
-
         return toolCallback;
     }
 }

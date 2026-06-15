@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 import com.alibaba.cloud.ai.dashscope.chat.DashScopeChatModel;
-import com.example.demo.config.ToolConfig;
 import com.example.demo.tool.DateTimeTools;
 import com.example.demo.tool.WeatherTools;
 import org.springframework.ai.chat.client.ChatClient;
@@ -42,7 +41,7 @@ public class ChatController {
     public String call(String message) {
         return chatClient.prompt()
                 .user(message)
-    //           .tools(new DateTimeTools())
+                .tools(new DateTimeTools())
                 .call()
                 .content();
     }

@@ -11,6 +11,8 @@
     <modules>
         <module>spring-qianfan-demo</module>
         <module>spring-alibaba-demo</module>
+        <module>mcp-client-demo</module>
+        <module>mcp-stdio-server-demo</module>
     </modules>
 
     <properties>
