@@ -1,0 +1,19 @@
+server:
+  port: 8088
+spring:
+  ai:
+    mcp:
+      server:
+        stdio: false
+        enabled: true
+        sse-endpoint: /mcp/sse
+        protocol: STATELESS
+        keep-alive-interval: 30s
+        name: mcp-sse-server
+        version: 1.0.0
+# 正确日志层级，完整匹配自动配置类包
+logging:
+  level:
+    root: INFO
+    org.springframework.ai.mcp: WARN
+    org.springframework.ai.mcp.server.autoconfigure: WARN
