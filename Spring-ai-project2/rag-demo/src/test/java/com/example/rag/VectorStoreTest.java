@@ -2,6 +2,9 @@ package com.example.rag;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.client.advisor.vectorstore.QuestionAnswerAdvisor;
+import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.ai.embedding.EmbeddingModel;
 import org.springframework.ai.vectorstore.SearchRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +32,9 @@ public class VectorStoreTest {
 
     @Autowired
     private SimpleVectorStore simpleVectorStore;
-    
+
+    @Autowired
+    private ChatModel chatModel;
     @BeforeEach
     void setUp(){
         Document doc1 = Document.builder()
@@ -65,5 +70,19 @@ public class VectorStoreTest {
                 .build();
         List<Document> documents = simpleVectorStore.similaritySearch(request);
         documents.forEach(System.out::println);
+    }
+
+    @Test
+    void testRag(){
+        ChatClient chatClient = ChatClient.builder(chatModel).build();
+        QuestionAnswerAdvisor advisor = QuestionAnswerAdvisor.builder(simpleVectorStore).build();
+        String message = "奥运会什么时候举行";
+        String content = chatClient
+                .prompt()
+                .advisors(advisor)
+                .user(message)
+                .call()
+                .content();
+        System.out.println(content);
     }
 }
